@@ -1,0 +1,43 @@
+#spring:
+#  social:
+#    twitter: 
+#      appId:     8c0jF1yu2IUkwmx2ypftcJPIJ
+#      appSecret: cqFEw4P7vuIUQLj20wJmNxdZ9Z91fqZZdrGB4aCRY6aasvVHYR
+      
+#  thymeleaf:
+#    check-template-location: true    
+#    prefix: classpath:/WEB-INF/views/
+#    suffix: .html
+#    mode: HTML
+#    encoding: UTF-8
+#    content-type: text/html
+#    cache: false
+
+jittr:
+  repository-rest:
+    url:
+      auth-host:     localhost
+      auth-port:     8090
+      auth-schema:   http
+      jitters:       http://localhost:8090/api/jitters
+      jitters-all:   http://localhost:8090/api/jitters/all
+      jitters-merge: http://localhost:8090/api/jitters/merge
+      research:      http://localhost:8090/api/research/
+      researches:    http://localhost:8090/api/researches/
+    app-name: jittr
+    app-password: jittr
+#   app-name: ${REPOSITORY_USER}
+#   app-password: ${REPOSITORY_PASSWORD}
+
+
+    
+  
+    
+  
+
+
+
+
+
+    
+    

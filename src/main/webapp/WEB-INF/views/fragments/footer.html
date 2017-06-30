@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <!--/*  Multiple fragments may be defined in one file */-->
+    <div th:fragment="footer" th:align="center">
+        <span> 2017 The Jittr.</span>
+    </div>
+    <div th:fragment="footer-admin" th:align="center">
+        <span>T 2017 The Jittr.</span><span th:text="${@environment.getProperty('app.version')}"></span>
+    </div>
+</body>
+</html>
+

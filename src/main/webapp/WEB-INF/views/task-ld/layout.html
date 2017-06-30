@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <!--/*  Each token will be replaced by their respective titles in the resulting page. */-->
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Task List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}"/>
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<!--/* Standard layout can be mixed with Layout Dialect */-->
+<div th:replace="fragments/header :: header">
+</div>
+    <ol class="breadcrumb container">
+        <li><a href="/" >Home</a></li>
+        <li th:text="${'Research: ' + currentResearch.name + ' [' + currentResearch.state + ']'}">Research</li>
+    </ol>
+<div class="container">
+    <div class="row"> 
+        <div class="well col-md-2">
+        	<h5>Free researches</h5>
+		     <ol class="breadcrumb container">
+		        <li th:each="research : ${freeResearches}">
+			        <a href="/research/#" th:href="'/research/' + @{${research.id}}" th:text="${research.name + '[' + research.state + ']'}">
+			        	Research
+			        </a>
+		        </li>
+		    </ol>  
+		    <div th:if="${#authorization.expression('isAuthenticated()')}">
+		    <h5>My researches 
+		    	<a href="/research/#" th:href="'/research/new/'"> [New]</a>
+		    </h5>
+			    <ol class="breadcrumb container">
+		        <li th:each="research : ${jitterResearches}">
+			        <a href="/research/#" th:href="'/research/' + @{${research.id}}" th:text="${research.name + '[' + research.state + ']'}">
+				        	Research
+				        </a>
+			        </li>
+			    </ol>
+		    </div>        
+		 </div>
+		 <div class="well col-md-10">
+    	 	<div layout:fragment="content">
+    		</div>
+         </div>
+   </div>
+   <div th:replace="fragments/footer :: footer">&copy; 2017 The Jittr.</div>
+</div>
+</body>
+</html>
